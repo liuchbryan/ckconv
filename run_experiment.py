@@ -43,7 +43,7 @@ def main(_):
     # initialize weight and bias
     # if not config.train:
     #     os.environ["WANDB_MODE"] = "dryrun"
-    os.environ["WANDB_MODE"] = "offline"
+    os.environ["WANDB_MODE"] = "disabled"
     tags = [
         config.model,
         config.dataset,
