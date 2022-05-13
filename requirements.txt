@@ -46,9 +46,9 @@ llvmlite==0.35.0
 MarkupSafe==1.1.1
 matplotlib==3.2.2
 mistune==0.8.4
-mkl-fft==1.2.0
-mkl-random==1.1.1
-mkl-service==2.3.0
+mkl-fft>=1.2.0
+mkl-random>=1.1.1
+mkl-service>=2.3.0
 ml-collections==0.1.0
 nbclassic==0.2.6
 nbclient==0.5.1
@@ -91,7 +91,7 @@ scikit-learn==0.23.2
 scipy==1.6.0
 Send2Trash==1.5.0
 sentry-sdk==0.19.5
-setuptools==52.0.0.post20210125
+setuptools>=52.0.0.post20210125
 shortuuid==1.0.1
 six==1.15.0
 sktime==0.5.3
@@ -103,7 +103,7 @@ terminado==0.9.2
 testpath==0.4.4
 threadpoolctl==2.1.0
 torch==1.7.1
-torchaudio==0.7.0a0+a853dff
+torchaudio>=0.7.0a0+a853dff
 torchvision==0.8.2
 tornado==6.1
 traitlets==5.0.5
