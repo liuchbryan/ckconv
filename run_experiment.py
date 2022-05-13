@@ -43,24 +43,25 @@ def main(_):
     # initialize weight and bias
     # if not config.train:
     #     os.environ["WANDB_MODE"] = "dryrun"
-    # tags = [
-    #     config.model,
-    #     config.dataset,
-    #     config.kernelnet_activation_function,
-    #     "seq_length={}".format(config.seq_length),
-    # ]
-    # if config.dataset == "MNIST":
-    #     tags.append(str(config.permuted))
+    os.environ["WANDB_MODE"] = "offline"
+    tags = [
+        config.model,
+        config.dataset,
+        config.kernelnet_activation_function,
+        "seq_length={}".format(config.seq_length),
+    ]
+    if config.dataset == "MNIST":
+        tags.append(str(config.permuted))
 
-    # wandb.init(
-    #     project="ckconv",
-    #     config=copy.deepcopy(dict(config)),
-    #     group=config.dataset,
-    #     entity="vu_uva_team",
-    #     tags=tags,
-    #     # save_code=True,
-    #     # job_type=config.function,
-    # )
+    wandb.init(
+        project="ckconv",
+        config=copy.deepcopy(dict(config)),
+        group=config.dataset,
+        entity="vu_uva_team",
+        tags=tags,
+        # save_code=True,
+        # job_type=config.function,
+    )
 
     # Define the device to be used and move model to that device
     config["device"] = (
