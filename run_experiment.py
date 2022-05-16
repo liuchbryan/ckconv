@@ -41,9 +41,10 @@ def main(_):
     np.random.seed(config.seed)
 
     # initialize weight and bias
-    # if not config.train:
-    #     os.environ["WANDB_MODE"] = "dryrun"
-    os.environ["WANDB_MODE"] = "disabled"
+    os.environ["WANDB_MODE"] = "offline"
+    if not config.train:
+        os.environ["WANDB_MODE"] = "dryrun"
+    
     tags = [
         config.model,
         config.dataset,
