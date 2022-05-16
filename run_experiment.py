@@ -1,7 +1,6 @@
 # general
 import os
 import wandb
-import ml_collections
 import sys
 import copy
 
@@ -41,7 +40,7 @@ def main(_):
     np.random.seed(config.seed)
 
     # initialize weight and bias
-    os.environ["WANDB_MODE"] = "offline"
+    # os.environ["WANDB_MODE"] = "offline"
     if not config.train:
         os.environ["WANDB_MODE"] = "dryrun"
     
@@ -55,10 +54,10 @@ def main(_):
         tags.append(str(config.permuted))
 
     wandb.init(
-        project="ckconv",
+        project="ckconv-investgation",
         config=copy.deepcopy(dict(config)),
         group=config.dataset,
-        entity="vu_uva_team",
+        entity="harrisonzhu",
         tags=tags,
         # save_code=True,
         # job_type=config.function,
