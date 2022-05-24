@@ -3,6 +3,7 @@ import os
 import wandb
 import sys
 import copy
+os.environ["CUDA_AVAILABLE_DEVICES"] = "1,2"
 
 # torch
 import numpy as np
@@ -14,7 +15,6 @@ from model import get_model
 import dataset
 import trainer
 import tester
-
 # args
 from absl import app
 from absl import flags
@@ -59,13 +59,14 @@ def main(_):
         group=config.dataset,
         entity="harrisonzhu",
         tags=tags,
+        name=f"omega{config.kernelnet_omega_0}_dropout{config.dropout}"
         # save_code=True,
         # job_type=config.function,
     )
 
     # Define the device to be used and move model to that device
     config["device"] = (
-        "cuda:0" if (config.device == "cuda" and torch.cuda.is_available()) else "cpu"
+        "cuda:1" if (config.device == "cuda" and torch.cuda.is_available()) else "cpu"
     )
 
     # Define transforms and create dataloaders

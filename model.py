@@ -221,7 +221,7 @@ def get_model(config):
     print("GPU's available:", torch.cuda.device_count())
     if torch.cuda.device_count() > 1:
         print("Let's use", torch.cuda.device_count(), "GPUs!")
-    model = torch.nn.DataParallel(model)  # Required for multi-GPU
+    model = torch.nn.DataParallel(model, device_ids=[1,2])  # Required for multi-GPU
     model.to(config.device)
     torch.backends.cudnn.benchmark = True
 
